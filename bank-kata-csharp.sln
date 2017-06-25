@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bank-kata-csharp", "bank-kata-csharp\bank-kata-csharp.csproj", "{D6623820-D2BC-45FC-BEE6-107BBE9ADC47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bank-kata-csharp.test", "bank-kata-csharp\bank-kata-csharp.test.csproj", "{D6623820-D2BC-45FC-BEE6-107BBE9ADC47}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "bank-kata-csharp.lib", "bank-kata-csharp.lib\bank-kata-csharp.lib.shproj", "{7BAF3243-6C30-442A-83FD-3201C6E45C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
