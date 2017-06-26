@@ -1,5 +1,6 @@
 ﻿using System;
-using com.finix.kata.bankkata.test;
+using System.Collections.Generic;
+using com.finix.kata.bankkata;
 
 namespace com.finix.kata.bankkata
 {
@@ -7,6 +8,6 @@ namespace com.finix.kata.bankkata
     {
         void depositTransaction(double amount);
         void withdrawTransaction(double v);
-        ITransaction[] AllTransactions();
+        List<ITransaction> AllTransactions();
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Moq;
 using com.finix.kata.bankkata;
+using System.Collections.Generic;
 
 namespace com.finix.kata.bankkata.test
 {
@@ -21,28 +22,28 @@ namespace com.finix.kata.bankkata.test
         [Test()]
         public void should_store_withdraw()
         {
-            var transactionMoq = new Mock<ITransactionRepository>();
-            var account = new Account(transactionMoq.Object);
+            var repositoryMoq = new Mock<ITransactionRepository>();
+            var account = new Account(repositoryMoq.Object);
 
             account.withdraw(100.00);
 
-            transactionMoq.Verify(transaction => transaction.withdrawTransaction(100), Times.Once());
+            repositoryMoq.Verify(repository => repository.withdrawTransaction(100), Times.Once());
         }
 
         [Test()]
         public void should_print_statement()
         {
-            var transactions = new ITransaction[] { new Transaction("25/12/2017", 100) { } };
-            var transactionMoq = new Mock<ITransactionRepository>();
-            transactionMoq.Setup(transaction => transaction.AllTransactions()).Returns(transactions);
+            var transactions = new List<ITransaction>(new Transaction[] { new Transaction("25/12/2017", 100) });
+            var repositoryMoq = new Mock<ITransactionRepository>();
+            repositoryMoq.Setup(repository => repository.AllTransactions()).Returns(transactions);
             var statementMoq = new Mock<IStatementPrinter>();
 
 
-            var account = new Account(transactionMoq.Object, statementMoq.Object);
+            var account = new Account(repositoryMoq.Object, statementMoq.Object);
 
             account.printStatement();
 
-            transactionMoq.Verify(transaction 
+            repositoryMoq.Verify(transaction 
                                   => transaction.AllTransactions());
             statementMoq.Verify(statement 
                                 => statement.print(transactions));

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D6623820-D2BC-45FC-BEE6-107BBE9ADC47}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>bankkatacsharp</RootNamespace>
+    <RootNamespace>com.finix.kata.bankkata</RootNamespace>
     <AssemblyName>bank-kata-csharp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
@@ -40,20 +40,35 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="IConsole.cs" />
-    <Compile Include="ITransactionRepository.cs" />
     <Compile Include="src\test\AccountShould.cs" />
     <Compile Include="src\test\features\PrintStatementFeature.cs" />
-    <Compile Include="src\test\ITransaction.cs" />
-    <Compile Include="src\test\Transaction.cs" />
-    <Compile Include="IStatementPrinter.cs" />
+    <Compile Include="src\csharp\ITransaction.cs" />
+    <Compile Include="src\csharp\Transaction.cs" />
+    <Compile Include="src\csharp\IConsole.cs" />
+    <Compile Include="src\csharp\IStatementPrinter.cs" />
+    <Compile Include="src\csharp\ITransactionRepository.cs" />
+    <Compile Include="src\csharp\Account.cs" />
+    <Compile Include="src\csharp\TransactionRepository.cs" />
+    <Compile Include="src\test\TransactionRepositoryShould.cs" />
+    <Compile Include="src\csharp\IClock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
