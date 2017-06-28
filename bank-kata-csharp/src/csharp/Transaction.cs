@@ -13,16 +13,22 @@ namespace com.finix.kata.bankkata
             this.amount = amount;
         }
 
-        public double Amount {
-            get{
-                return amount;
-            }
+        public override int GetHashCode()
+        {
+            int hash = 0;
+            hash += date.GetHashCode();
+            hash += amount.GetHashCode();
+            return hash;
         }
 
-        public string Date {
-            get {
-                return date;
-            }
+        public override bool Equals(object obj)
+        {
+			if (obj == null || GetType() != obj.GetType())
+				return false;
+
+            Transaction fooItem = obj as Transaction;
+
+            return (fooItem.amount == this.amount) && (fooItem.date == this.date);
         }
     }
 }

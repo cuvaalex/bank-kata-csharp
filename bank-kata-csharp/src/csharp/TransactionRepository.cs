@@ -5,13 +5,12 @@ namespace com.finix.kata.bankkata
 {
     public class TransactionRepository: ITransactionRepository
     {
-        private List<ITransaction> transactions;
+        private List<ITransaction> transactions = new List<ITransaction>();
         private IClock clock;
 
-        public TransactionRepository(IClock clock, List<ITransaction> transactions)
+        public TransactionRepository(IClock clock)
         {
             this.clock = clock;
-            this.transactions = transactions;
         }
 
         public List<ITransaction> AllTransactions()
@@ -21,12 +20,12 @@ namespace com.finix.kata.bankkata
 
         public void depositTransaction(double amount)
         {
-            AllTransactions().Add(new Transaction(date: clock.todayToString(), amount: amount));
+            AllTransactions().Add(new Transaction(date: clock.TodayToString(), amount: amount));
         }
 
         public void withdrawTransaction(double amount)
         {
-            AllTransactions().Add(new Transaction(date: clock.todayToString(), amount: -amount));
+            AllTransactions().Add(new Transaction(date: clock.TodayToString(), amount: -amount));
         }
     }
 }
