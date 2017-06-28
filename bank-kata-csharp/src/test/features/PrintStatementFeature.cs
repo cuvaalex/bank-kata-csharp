@@ -17,7 +17,8 @@ namespace com.finix.kata.bankkata.feature
                     .Returns("13/01/2012")
                     .Returns("14/01/2012");
             var repository = new TransactionRepository(clockMoq.Object);
-            var account = new Account(repository);
+            var statement = new StatementPrinter(consoleMoq.Object);
+            var account = new Account(repository, statement);
 
             account.printStatement();
 

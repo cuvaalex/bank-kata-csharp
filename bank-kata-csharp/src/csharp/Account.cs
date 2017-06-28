@@ -6,18 +6,11 @@ namespace com.finix.kata.bankkata
         private ITransactionRepository @transaction;
         private IStatementPrinter @printer;
 
-        public Account()
-    {
-    }
 
-        public Account(ITransactionRepository @transaction)
-        {
-            this.@transaction = @transaction;
-        }
-
-        public Account(ITransactionRepository transaction, IStatementPrinter @printer) : this(transaction)
+        public Account(ITransactionRepository transaction, IStatementPrinter @printer)
         {
             this.@printer = @printer;
+            this.@transaction = transaction;
         }
 
         public void deposit(double amount)

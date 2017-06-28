@@ -71,6 +71,8 @@
     <Compile Include="src\csharp\IClock.cs" />
     <Compile Include="src\csharp\Clock.cs" />
     <Compile Include="src\test\ClockShould.cs" />
+    <Compile Include="src\test\StatementPrinterShould.cs" />
+    <Compile Include="src\csharp\StatementPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />

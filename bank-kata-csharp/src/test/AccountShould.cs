@@ -9,11 +9,20 @@ namespace com.finix.kata.bankkata.test
     [TestFixture()]
     public class AccountShould
     {
+        IStatementPrinter statement;
+
+        [SetUp()]
+        public void initialize() {
+            var consoleMoq = new Mock<IConsole>();
+            statement = new StatementPrinter(consoleMoq.Object);
+        }
+
         [Test()]
         public void should_store_deposit()
         {
+
             var transactionMoq = new Mock<ITransactionRepository>();
-            var account = new Account(transactionMoq.Object);
+            var account = new Account(transactionMoq.Object, statement);
 
             account.deposit(100.00);
 
@@ -23,7 +32,7 @@ namespace com.finix.kata.bankkata.test
         public void should_store_withdraw()
         {
             var repositoryMoq = new Mock<ITransactionRepository>();
-            var account = new Account(repositoryMoq.Object);
+            var account = new Account(repositoryMoq.Object, statement);
 
             account.withdraw(100.00);
 

@@ -3,13 +3,12 @@ namespace com.finix.kata.bankkata
 {
     public class Clock : IClock
     {
-        private DateTime date;
-
+        
         public Clock()
         {
         }
 
-        protected virtual DateTime Date { get => date; }
+        protected virtual DateTime Date { get => DateTime.Now; }
 
         public string TodayToString()
         {
