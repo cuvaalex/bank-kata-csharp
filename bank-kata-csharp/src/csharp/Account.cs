@@ -13,17 +13,17 @@ namespace com.finix.kata.bankkata
             this.@transaction = transaction;
         }
 
-        public void deposit(double amount)
+        public void Deposit(double amount)
         {
             @transaction.depositTransaction(amount);
         }
 
-        public void withdraw(double amount)
+        public void Withdraw(double amount)
         {
             @transaction.withdrawTransaction(amount);
         }
 
-        public void printStatement()
+        public void PrintStatement()
         {
             var transactions = this.@transaction.AllTransactions();
             this.@printer.print(transactions);

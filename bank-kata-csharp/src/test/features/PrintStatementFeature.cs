@@ -20,12 +20,15 @@ namespace com.finix.kata.bankkata.feature
             var statement = new StatementPrinter(consoleMoq.Object);
             var account = new Account(repository, statement);
 
-            account.printStatement();
+            account.Deposit(1000);
+            account.Deposit(2000);
+            account.Withdraw(500);
+            account.PrintStatement();
 
             consoleMoq.Verify(console => console.print("date || credit || debit || balance"));
-            consoleMoq.Verify(console => console.print("14/01/2012 ||          || 500.00 || 2500.00"));
-            consoleMoq.Verify(console => console.print("13/01/2012 || 2000.00 ||          || 3000.00"));
-            consoleMoq.Verify(console => console.print("10/01/2012 || 1000.00 ||          || 1000.00"));
+            consoleMoq.Verify(console => console.print("14/01/2012 ||  || 500.00 || 2,500.00"));
+            consoleMoq.Verify(console => console.print("13/01/2012 || 2,000.00 ||  || 3,000.00"));
+            consoleMoq.Verify(console => console.print("10/01/2012 || 1,000.00 ||  || 1,000.00"));
 
 		}
     }

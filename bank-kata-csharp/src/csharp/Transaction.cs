@@ -7,28 +7,31 @@ namespace com.finix.kata.bankkata
         private string date;
         private double amount;
 
+        public string Date { get => date; set => date = value; }
+        public double Amount { get => amount; set => amount = value; }
+
         public Transaction(string date, double amount)
         {
-            this.date = date;
-            this.amount = amount;
+            this.Date = date;
+            this.Amount = amount;
         }
 
         public override int GetHashCode()
         {
             int hash = 0;
-            hash += date.GetHashCode();
-            hash += amount.GetHashCode();
+            hash += Date.GetHashCode();
+            hash += Amount.GetHashCode();
             return hash;
         }
 
         public override bool Equals(object obj)
         {
-			if (obj == null || GetType() != obj.GetType())
-				return false;
+            if (obj == null || GetType() != obj.GetType())
+                return false;
 
             Transaction fooItem = obj as Transaction;
 
-            return (fooItem.amount == this.amount) && (fooItem.date == this.date);
+            return (fooItem.Amount == this.Amount) && (fooItem.Date == this.Date);
         }
     }
 }
